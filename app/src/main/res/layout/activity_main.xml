@@ -63,7 +63,9 @@
                 <SeekBar
                     android:id="@+id/seekBar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:progress="2"
+                    android:max="5"/>
             </LinearLayout>
 
             <LinearLayout
@@ -76,6 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:text="Frosting" />
 
                 <Switch
@@ -83,6 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:text="Candles" />
 
             </LinearLayout>
