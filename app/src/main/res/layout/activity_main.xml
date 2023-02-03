@@ -98,13 +98,15 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/secondButton"
+                    android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="goodbye"
+                    android:tag="button"
                     android:text="Goodbye" />
 
                 <Button
-                    android:id="@+id/firstButton"
+                    android:id="@+id/blowOut"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
