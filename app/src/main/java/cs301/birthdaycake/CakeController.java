@@ -1,6 +1,11 @@
 package cs301.birthdaycake;
 
-public class CakeController {
+import android.view.View;
+import android.util.Log;
+import android.widget.CompoundButton;
+import android.widget.SeekBar;
+
+public class CakeController implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, SeekBar.OnSeekBarChangeListener  {
 
     private CakeView view;
 
@@ -12,4 +17,34 @@ public class CakeController {
         model = view.dataGetter();
     }
 
+    public void onClick(View v){
+        Log.d("worked","wow");
+        model.candlesLit = false;
+        view.invalidate();
+
+    }
+
+
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        model.hasCandles = b;
+        view.invalidate();
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+        model.numCandles = i;
+        view.invalidate();
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
 }
