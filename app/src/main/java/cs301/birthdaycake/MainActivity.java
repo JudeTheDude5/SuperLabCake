@@ -13,7 +13,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main);
-
+        CakeView view = findViewById(R.id.cakeview);
+        CakeController control = new CakeController(view);
 
     }
     public void goodbye(View button) {
