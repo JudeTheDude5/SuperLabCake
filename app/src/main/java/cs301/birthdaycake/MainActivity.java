@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         SeekBar candlesNum = findViewById(R.id.seekBar);
         candlesNum.setOnSeekBarChangeListener(control);
 
+        view.setOnTouchListener(control);
     }
     public void goodbye(View button) {
         Log.i("button", "Goodbye");
