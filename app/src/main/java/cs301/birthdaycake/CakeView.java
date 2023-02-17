@@ -16,10 +16,11 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    Paint locationPaint = new Paint();
 
-    Paint checkPaint1 = new Paint();
+    Paint balloonColor = new Paint();
 
-    Paint checkPaint2 = new Paint();
+    Paint balloonString = new Paint();
 
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
@@ -71,7 +72,10 @@ public class CakeView extends SurfaceView {
         checkPaint1.setStyle(Paint.Style.FILL);
         checkPaint2.setColor(0xFF861818); //Red
         checkPaint2.setStyle(Paint.Style.FILL);
+        balloonString.setColor(0xFF000000);
+        balloonColor.setColor(0xFF1B78DB);
 
+        locationPaint.setColor(Color.RED);
         setBackgroundColor(Color.WHITE);  //better than black default
 
         data = new CakeModel();
@@ -149,6 +153,17 @@ public class CakeView extends SurfaceView {
             canvas.drawRect(data.x, data.y - checkWidth, data.x + checkWidth, data.y, checkPaint2);
             canvas.drawRect(data.x, data.y, data.x + checkWidth, data.y + checkWidth, checkPaint1);
             canvas.drawRect(data.x - checkWidth, data.y, data.x, data.y + checkWidth, checkPaint2);
+
+            //drawCandle(canvas, cakeLeft + 2 * cakeWidth / 3 - candleWidth / 2, cakeTop);
+            locationPaint.setTextSize(100);
+            canvas.drawText(data.x + ", " + data.y, 1700F, 900F, locationPaint);
+
+        }
+
+        if(data.touched == true){
+            canvas.drawCircle(data.x-10,data.y-30,60,balloonColor);
+            canvas.drawOval(data.x-60,data.y-80,data.x+40,data.y+60,balloonColor);
+            canvas.drawLine(data.x-10,data.y+60,data.x-10,data.y+160,balloonString);
         }
     }//onDraw
 
