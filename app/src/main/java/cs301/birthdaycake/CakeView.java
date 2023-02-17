@@ -21,6 +21,8 @@ public class CakeView extends SurfaceView {
     Paint balloonColor = new Paint();
 
     Paint balloonString = new Paint();
+    Paint checkPaint1 = new Paint();
+    Paint checkPaint2 = new Paint();
 
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
