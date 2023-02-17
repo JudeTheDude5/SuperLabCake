@@ -17,6 +17,10 @@ public class CakeView extends SurfaceView {
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
 
+    Paint checkPaint1 = new Paint();
+
+    Paint checkPaint2 = new Paint();
+
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
         and adapting to different tablets' screen sizes and resolutions.  I've deliberately
@@ -33,6 +37,8 @@ public class CakeView extends SurfaceView {
     public static final float wickWidth = 6.0f;
     public static final float outerFlameRadius = 30.0f;
     public static final float innerFlameRadius = 15.0f;
+
+    public static final float checkWidth = 75.0f;
 
     private CakeModel data;
 
@@ -61,6 +67,10 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        checkPaint1.setColor(0xFF92CD7E); //Green
+        checkPaint1.setStyle(Paint.Style.FILL);
+        checkPaint2.setColor(0xFF861818); //Red
+        checkPaint2.setStyle(Paint.Style.FILL);
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
@@ -133,8 +143,12 @@ public class CakeView extends SurfaceView {
         //Now a candle in the center
         for(int i = 1; i <= data.numCandles; ++i) {
             drawCandle(canvas, cakeLeft + i * cakeWidth / (data.numCandles + 1) - candleWidth / 2, cakeTop);
-
-            //drawCandle(canvas, cakeLeft + 2 * cakeWidth / 3 - candleWidth / 2, cakeTop);
+        }
+        if (data.touched == true) {
+            canvas.drawRect(data.x - checkWidth, data.y - checkWidth, data.x, data.y, checkPaint1);
+            canvas.drawRect(data.x, data.y - checkWidth, data.x + checkWidth, data.y, checkPaint2);
+            canvas.drawRect(data.x, data.y, data.x + checkWidth, data.y + checkWidth, checkPaint1);
+            canvas.drawRect(data.x - checkWidth, data.y, data.x, data.y + checkWidth, checkPaint2);
         }
     }//onDraw
 
