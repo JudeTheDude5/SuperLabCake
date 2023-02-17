@@ -141,9 +141,10 @@ public class CakeView extends SurfaceView {
         //Now a candle in the center
         for(int i = 1; i <= data.numCandles; ++i) {
             drawCandle(canvas, cakeLeft + i * cakeWidth / (data.numCandles + 1) - candleWidth / 2, cakeTop);
+
             //drawCandle(canvas, cakeLeft + 2 * cakeWidth / 3 - candleWidth / 2, cakeTop);
             locationPaint.setTextSize(100);
-            canvas.drawText(data.touchX + ", " + data.touchY, 1700F, 900F, locationPaint);
+            canvas.drawText(data.balloonX + ", " + data.balloonY, 1700F, 900F, locationPaint);
 
         }
 
@@ -152,10 +153,6 @@ public class CakeView extends SurfaceView {
             canvas.drawOval(data.balloonX-60,data.balloonY-80,data.balloonX+40,data.balloonY+60,balloonColor);
             canvas.drawLine(data.balloonX-10,data.balloonY+60,data.balloonX-10,data.balloonY+160,balloonString);
         }
-        //Report x,y location
-
-
-
     }//onDraw
 
 }//class CakeView
